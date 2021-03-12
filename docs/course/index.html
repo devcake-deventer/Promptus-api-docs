@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Course · Promptus API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Courses are another key component of the Promptus Api. Courses can be offered as seperate modules but they can also be part of a study. More information about this in `insert link to that part of the documentation`."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Course · Promptus API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://BoyBouw.github.io/Promptus-api-docs/"/><meta property="og:description" content="Courses are another key component of the Promptus Api. Courses can be offered as seperate modules but they can also be part of a study. More information about this in `insert link to that part of the documentation`."/><meta property="og:image" content="https://BoyBouw.github.io/Promptus-api-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://BoyBouw.github.io/Promptus-api-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Promptus-api-docs/img/Promptus-icon-hat.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Promptus-api-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/Promptus-api-docs/css/main.css"/><script src="/Promptus-api-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Promptus-api-docs/"><img class="logo" src="/Promptus-api-docs/img/Promptus-icon-hat.svg" alt="Promptus API"/><h2 class="headerTitleWithLogo">Promptus API</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/Promptus-api-docs/docs/getting-started" target="_self">Docs</a></li><li class=""><a href="/Promptus-api-docs/docs/api" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Entities</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Using the API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/authenticating-user">User Authentication</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Entities<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/user">Users</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/studies">Studies</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/study-registration">Study registration</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/Promptus-api-docs/docs/course">Course</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/course-registration">Course registration</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/plannings">Planning Objects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Advanced topics<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/advanced">Advanced Topics</a></li></ul></div></div></section></div><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Courses · Promptus API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Courses are another key component of the Promptus API. A course generally includes a set of course sessions that take place over a period of time. A course object therefore holds abstract information, such as subject and price, but not the information of a single session (e.g. time and location). Instead, this information is stored inside course_session object. "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Courses · Promptus API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://BoyBouw.github.io/Promptus-api-docs/"/><meta property="og:description" content="Courses are another key component of the Promptus API. A course generally includes a set of course sessions that take place over a period of time. A course object therefore holds abstract information, such as subject and price, but not the information of a single session (e.g. time and location). Instead, this information is stored inside course_session object. "/><meta property="og:image" content="https://BoyBouw.github.io/Promptus-api-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://BoyBouw.github.io/Promptus-api-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Promptus-api-docs/img/Promptus-icon-hat.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Promptus-api-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/Promptus-api-docs/css/main.css"/><script src="/Promptus-api-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Promptus-api-docs/"><img class="logo" src="/Promptus-api-docs/img/Promptus-icon-hat.svg" alt="Promptus API"/><h2 class="headerTitleWithLogo">Promptus API</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/Promptus-api-docs/docs/getting-started" target="_self">Docs</a></li><li class=""><a href="/Promptus-api-docs/docs/api" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Types</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Using the API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/authenticating-user">User Authentication</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Types<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/user">Users</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/Promptus-api-docs/docs/course">Courses</a></li></ul></div></div></section></div><script>
             var coll = document.getElementsByClassName('collapsible');
             var checkActiveCategory = true;
             for (var i = 0; i < coll.length; i++) {
@@ -54,15 +54,40 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Course</h1></header><article><div><span><p>Courses are another key component of the Promptus Api. Courses can be offered as seperate modules but they can also be part of a study. More information about this in <code>insert link to that part of the documentation</code>.</p>
-<h2><a class="anchor" aria-hidden="true" id="basics"></a><a href="#basics" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basics</h2>
-<p>TODO</p>
-<h2><a class="anchor" aria-hidden="true" id="retrieving-courses"></a><a href="#retrieving-courses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Retrieving courses</h2>
-<p>Courses can be retrieved from the Promptus API in two manners, either paginated or as a single list. The first is the simplest, but might not always be the best choice. A simple query to get the list of courses and some fields might look as follows.</p>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Courses</h1></header><article><div><span><p>Courses are another key component of the Promptus API. A course generally includes a set of course sessions that take place over a period of time. A course object therefore holds abstract information, such as subject and price, but not the information of a single session (e.g. time and location). Instead, this information is stored inside course_session object.</p>
+<h2><a class="anchor" aria-hidden="true" id="course-participants"></a><a href="#course-participants" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Course participants</h2>
+<p>When a user want to participate in a course, he or she should register for a course and <strong>NOT</strong> a course session. This may feel counter-intuitive. However, by design, registering for a course means the user will be a participant in all course sessions belonging to the course. This is doen, since participating in a course generally means you have to be present in all sessions. Therefore, a user does not have to register for individual course sessions.</p>
+<h2><a class="anchor" aria-hidden="true" id="courses-hierarchy"></a><a href="#courses-hierarchy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Courses hierarchy</h2>
+<p>Courses can be placed within a hierarchy through the parentCourse and subCourses relations. This means that a single course can have multiple sub courses.This can be helpfull when you want to group together courses. For example, you might want to offer the same course multiple times in a single year. You can create a parant course (e.g. &quot;Computer Science 2022&quot;) with several sub courses (e.g. CS - Q1 2022 and CS - Q3 2022).<br>
+By default, the Promptus mobile dashboard displays sibling courses (subcourses of the same parent) in a collapsable group.</p>
+<h2><a class="anchor" aria-hidden="true" id="get-course-by-id"></a><a href="#get-course-by-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get course by id</h2>
+<p>There are several reasons as to why you might want to retrieve a specific course instead of a list of courses. An example of this might be that a user sees a list of courses and selects one to get more details. An example on how to perform such a query is shown below.</p>
 <pre><code class="hljs css language-gql">{
-    courses{
+  course(<span class="hljs-name">id:</span> <span class="hljs-number">1</span>) {
+    id
+    subject
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value"></a><a href="#return-value" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns the course with the corresponding id.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"course"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Computer Science"</span>
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization"></a><a href="#authorization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>None.</p>
+<h2><a class="anchor" aria-hidden="true" id="get-a-list-of-all-courses"></a><a href="#get-a-list-of-all-courses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get a list of all courses</h2>
+<p>You can get a complete list of courses being offered using the following query:</p>
+<pre><code class="hljs css language-gql">{
+    courses() {
         id,
-        description
+        subject
     }
 }
 </code></pre>
@@ -84,19 +109,106 @@
 <li><code>show_cancelled</code>: if true, also shows courses that have been cancelled</li>
 <li><code>uses_dates</code>: if true, checks if the current time is between the <code>registration_start_date</code> and <code>registration_end_date</code>, omitting this value will default it to true</li>
 </ul>
-<h3><a class="anchor" aria-hidden="true" id="obtaining-registrations-of-courses---administrators-only"></a><a href="#obtaining-registrations-of-courses---administrators-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Obtaining registrations of courses - <strong>Administrators only</strong></h3>
-<p>In addition to all the fields that can be queried on the course model, administrators can also query all users that registered for this course. An example is shown below.</p>
-<pre><code class="hljs css language-diff">{
-    courses{
-        id,
-        description
-<span class="hljs-addition">+       courseRegistrations {</span>
-<span class="hljs-addition">+           id</span>
-<span class="hljs-addition">+       }</span>
-    }
+<h4><a class="anchor" aria-hidden="true" id="return-value-1"></a><a href="#return-value-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns a list of courses, filtered by the given parameters.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"courses"</span>: [
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
+        <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Praktisch leidinggeven"</span>
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"4"</span>,
+        <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Online leren"</span>
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"5"</span>,
+        <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"3D printen voor de maakindustrie"</span>
+      }
+    ]
+  }
 }
 </code></pre>
-<p>Administrators can also filter on certain column(s). Currently we support course registration filtering by a single field: <code>confirmation_date</code>. We can apply the filter using the following method:</p>
+<h4><a class="anchor" aria-hidden="true" id="authorization-1"></a><a href="#authorization-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>None.</p>
+<h3><a class="anchor" aria-hidden="true" id="obtaining-registrations-of-courses"></a><a href="#obtaining-registrations-of-courses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Obtaining registrations of courses</h3>
+<p>In addition to all the fields that can be queried on the course model, admins can also query all registrations of a course. Following the graphQL principle, for each registration we can query the user. An example is shown below.</p>
+<pre><code class="hljs css language-diff">{
+  courses(check_places: false uses_dates: false) {
+    id
+    subject
+    courseRegistrations {
+      id
+      price
+      user {
+        first_name
+      }
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value-2"></a><a href="#return-value-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns the active user, based on provided bearer token.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"courses"</span>: [
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
+        <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Praktisch leidinggeven"</span>,
+        <span class="hljs-attr">"courseRegistrations"</span>: [
+          {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
+            <span class="hljs-attr">"price"</span>: <span class="hljs-string">"50.00"</span>,
+            <span class="hljs-attr">"user"</span>: {
+              <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Sarah"</span>
+            }
+          }
+        ]
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"4"</span>,
+        <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Online leren"</span>,
+        <span class="hljs-attr">"courseRegistrations"</span>: [
+          {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"4"</span>,
+            <span class="hljs-attr">"price"</span>: <span class="hljs-string">"50.00"</span>,
+            <span class="hljs-attr">"user"</span>: {
+              <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Will"</span>
+            }
+          }
+        ]
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"5"</span>,
+        <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"3D printen voor de maakindustrie"</span>,
+        <span class="hljs-attr">"courseRegistrations"</span>: [
+          {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"5"</span>,
+            <span class="hljs-attr">"price"</span>: <span class="hljs-string">"50.00"</span>,
+            <span class="hljs-attr">"user"</span>: {
+              <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Nathan"</span>
+            }
+          },
+          {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"9"</span>,
+            <span class="hljs-attr">"price"</span>: <span class="hljs-string">"50.00"</span>,
+            <span class="hljs-attr">"user"</span>: {
+              <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Tom"</span>
+            }
+          },
+          {
+            <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+            <span class="hljs-attr">"price"</span>: <span class="hljs-string">"50.00"</span>,
+            <span class="hljs-attr">"user"</span>: {
+              <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Laura"</span>
+            }
+          }
+        ]
+      },
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="querying-new-registrations"></a><a href="#querying-new-registrations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Querying new registrations</h4>
+<p>We can even filter on columns of course registration. Currently we support course registration filtering by a single field: <code>confirmation_date</code>. This can be used to identify new and/or unconfirmed registrations. We can apply the filter using the following query:</p>
 <pre><code class="hljs css language-diff">{
 <span class="hljs-deletion">-  courses {    </span>
 <span class="hljs-addition">+  courses(hasCourseRegistrations: {column: CONFIRMATION_DATE, operator: EQ, value: null}) {</span>
@@ -109,52 +221,87 @@
   }
 }
 </code></pre>
-<p>Doing this allows administrators to filter courses by the confirmation date of their related course registrations. All basic SQL operators are supported but the most common ones are:</p>
-<ul>
-<li>EQ</li>
-<li>NEQ</li>
-</ul>
-<h2><a class="anchor" aria-hidden="true" id="get-course-by-id"></a><a href="#get-course-by-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get course by id</h2>
-<p>There are several reasons as to why you might want to retrieve a specific course instead of a list of courses. An example of this might be that a user sees a list of courses and selects one to get more details. An example on how to perform such a query is shown below.</p>
-<pre><code class="hljs css language-gql">{
-  courseByID(<span class="hljs-name">id:</span> <span class="hljs-number">1</span>) {
-    id
-    description
-  }
-}
-</code></pre>
-<p>Check the API documentation to see all possible values that can be queried.</p>
+<blockquote>
+<p><strong>NOTE:</strong> All basic SQL operators are supported but the most common ones are <code>EQ</code> and <code>NEQ</code>.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="authorization-2"></a><a href="#authorization-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
 <h2><a class="anchor" aria-hidden="true" id="registering-for-a-course"></a><a href="#registering-for-a-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Registering for a course</h2>
 <p>A user can be registered for a course using the <code>registerForCourse</code> mutation. This requires a single argument for the course.</p>
-<pre><code class="hljs css language-gql"><span class="hljs-selector-tag">mutation</span>{
-    <span class="hljs-selector-tag">registerForCourse</span>(<span class="hljs-attribute">course</span>: <span class="hljs-number">42</span>){
-        <span class="hljs-selector-tag">id</span>
+<pre><code class="hljs css language-gql">mutation{
+  registerForCourse(course: <span class="hljs-number">2</span>){
+    <span class="hljs-built_in">id</span>,
+    course {
+      <span class="hljs-built_in">id</span>
+      subject
     }
+  }
 }
 </code></pre>
 <p>By default, the user will be loaded from the authentication context, but this can be overriden in two ways. First, we can explicitly define the user to register:</p>
 <pre><code class="hljs css language-diff">mutation{
 <span class="hljs-deletion">-   registerForCourse(course: 42){</span>
 <span class="hljs-addition">+   registerForCourse(course: 42, user: 13){</span>
-        id
+        id,
+    course {
+      id
+      subject
+    }
     }
 }
 </code></pre>
-<p>Or, we can define a name which will create a user object for you.</p>
+<p>Or, we can define a first name and a surname which will create a user object for you. This way, users don't have to be registered to register for a course</p>
 <pre><code class="hljs css language-diff">mutation{
 <span class="hljs-deletion">-   registerForCourse(course: 42){</span>
 <span class="hljs-addition">+   registerForCourse(course: 42, first_name: "Steve", surname: "Wozniak"){</span>
-        id
+        id,
+    course {
+      id
+      subject
+    }
     }
 }
 </code></pre>
-<p>There are also other, optional parameters:</p>
-<ul>
-<li><code>study_registration</code>: Use this if the registration for this course is part of a registration for a study.</li>
-<li><code>study</code>: Which study is the registration part of.</li>
-<li><code>intermediary_user</code>: Is a person other than the student managing this registration? This might be an HR manager or someone else in the organisation.</li>
-</ul>
-<h2><a class="anchor" aria-hidden="true" id="create-a-course---administrators-only"></a><a href="#create-a-course---administrators-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a course - <strong>Administrators only</strong></h2>
+<blockquote>
+<p><strong>NOTE:</strong> Users can only register for a course once.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="return-value-3"></a><a href="#return-value-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>The mutation returns the new course registration.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"registerForCourse"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"16"</span>,
+      <span class="hljs-attr">"course"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
+        <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Praktisch leidinggeven"</span>
+      }
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-3"></a><a href="#authorization-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>none.</p>
+<h4><a class="anchor" aria-hidden="true" id="required-parameters"></a><a href="#required-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h4>
+<p>In order for a user to register for a course, the following parameters have to be provided. Failing to provide any of the following parameters will result in an error being thrown.
+<details>
+<summary>View parameters</summary></p>
+<p><code>course: String</code>
+</details></p>
+<h4><a class="anchor" aria-hidden="true" id="optional-parameters"></a><a href="#optional-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h4>
+<p>In addition to the required parameters, the API accepts the following optional parameters.</p>
+<p><details>
+<summary>View parameters</summary></p>
+<p><code>first_name: String</code>  <br>
+<code>surname: String</code>  <br>
+<code>user: ID</code>  <br>
+<code>study_registration: ID</code>  <br>
+<code>intermediary_user: ID</code>  <br>
+<code>registration_number: String</code>  <br>
+<code>payment_number: String</code>  <br>
+<code>price: Price</code>  <br>
+<code>role: String</code> define the role this user has within this registration. Will default to &quot;student&quot;, if left out.
+</details></p>
+<h2><a class="anchor" aria-hidden="true" id="creating-a-new-course"></a><a href="#creating-a-new-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a new course</h2>
 <p>As an administrator you are able to create new courses that can be fetched by client applications. To provide this functionality the <code>createCourse</code> mutation is created.</p>
 <pre><code class="hljs css language-gql"><span class="hljs-selector-tag">mutation</span> {
   <span class="hljs-selector-tag">createCourse</span>(<span class="hljs-attribute">subject</span>: <span class="hljs-string">"subject"</span>, <span class="hljs-attribute">description</span>: <span class="hljs-string">"description"</span>)  {
@@ -164,120 +311,213 @@
   }
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="required-parameters"></a><a href="#required-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h3>
-<p>The <code>createCourse</code> mutation only has two required parameters: <code>subject</code> &amp; <code>description</code> <strong>(1)</strong>. Although we advise to fill in as much of the information as possible. This will help users of your application to make an informed decision about a course.</p>
-<h3><a class="anchor" aria-hidden="true" id="optional-parameters"></a><a href="#optional-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h3>
-<p>Using this mutation a number of different parameters can be updated. In the table below we share more details and their meaning.</p>
-<table>
-<thead>
-<tr><th>Field</th><th>Type</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td>parentCourse</td><td>ID</td><td>Provide the id of an existing course to set as the parent course</td></tr>
-<tr><td>description</td><td>String</td><td>Description with details about the course</td></tr>
-<tr><td>code</td><td>String</td><td>searchable string to identify the course with</td></tr>
-<tr><td>subject</td><td>String</td><td>details on the subject of the course</td></tr>
-<tr><td>price</td><td>Price</td><td>The price for the course</td></tr>
-<tr><td>period</td><td>String</td><td></td></tr>
-<tr><td>min_participants</td><td>Int</td><td>Minimal number of participants required for a course</td></tr>
-<tr><td>max_participants</td><td>Int</td><td>Maximum number of participants allowed for a course</td></tr>
-<tr><td>comment</td><td>String</td><td>A comment about the course</td></tr>
-<tr><td>courseType</td><td>ID</td><td>An unique identifier of the course type to set for the course</td></tr>
-<tr><td>location</td><td>Int</td><td></td></tr>
-<tr><td>course_number</td><td>String</td><td>a (unique) number for a course</td></tr>
-<tr><td>project_code</td><td>String</td><td>a (unique) code for a project</td></tr>
-<tr><td>head_teacher</td><td>ID</td><td>a unique identifier for an user that is marked as head teacher</td></tr>
-<tr><td>btwType</td><td>ID</td><td>a unique identifier for the btw type of this course</td></tr>
-<tr><td>content</td><td>String</td><td>details about the content of this course</td></tr>
-<tr><td>learning_goals</td><td>String</td><td>details about what will be learned during the course</td></tr>
-<tr><td>template</td><td>Boolean</td><td>mark as true to indicate this course is just a template</td></tr>
-<tr><td>certificate_validity_months</td><td>Int</td><td>amount of months the certificate is valid for</td></tr>
-<tr><td>certificate_validity_start</td><td>DateTime</td><td>moment the certifcate will become valid</td></tr>
-<tr><td>registration_end_date</td><td>DateTime</td><td>setting this value will exclude the course when the current time is past this date in the courses query</td></tr>
-<tr><td>registration_start_date</td><td>DateTime</td><td>setting this value will exclude the course when the current time is before this date in the courses query</td></tr>
-<tr><td>studies</td><td>[ID]</td><td>Array of unique identifiers of studies to which the course belongs</td></tr>
-<tr><td>studyPoints</td><td>[ID]</td><td>Array of unique identifiers of studyPoints to which the course belongs</td></tr>
-<tr><td>attributes</td><td>[ID]</td><td>Array of unique identifiers of attributes needed for this course</td></tr>
-</tbody>
-</table>
-<p><strong>(1) Our default courses query only includes courses that have been marked as final.</strong></p>
-<h2><a class="anchor" aria-hidden="true" id="update-a-course---administrators-only"></a><a href="#update-a-course---administrators-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update a course - <strong>Administrators only</strong></h2>
-<p>Administrators should be able to update a course for a number of different reasons. An example of such a reason is to update the price for a course. We offer this functionality through the <code>updateCourse</code> mutation.</p>
-<pre><code class="hljs css language-gql"><span class="hljs-selector-tag">mutation</span> {
-  <span class="hljs-selector-tag">updateCourse</span>(<span class="hljs-attribute">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attribute">description</span>: <span class="hljs-string">"updated description"</span>) {
-    <span class="hljs-selector-tag">id</span>
-    <span class="hljs-selector-tag">archived_date</span>
+<h4><a class="anchor" aria-hidden="true" id="return-value-4"></a><a href="#return-value-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>The mutation returns the newly created course.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"createCourse"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"15"</span>,
+      <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"subject"</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"description"</span>
+    }
   }
 }
 </code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-4"></a><a href="#authorization-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
 <h3><a class="anchor" aria-hidden="true" id="required-parameters-1"></a><a href="#required-parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h3>
-<p>This mutation has a single required parameter and this is the <code>id</code> of the course. When you fail to provide the <code>id</code>, or the <code>id</code> could not be resolved to a valid course object an exception will be thrown.</p>
+<p>The <code>createCourse</code> mutation only requires the following two parameters, although we advise to fill in as much of the information as possible. This will help users of your application to make an informed decision about a course.
+<details>
+<summary>View parameters</summary>
+<code>description: String!</code>  <br>
+<code>subject: String!</code>  <br>
+</details></p>
 <h3><a class="anchor" aria-hidden="true" id="optional-parameters-1"></a><a href="#optional-parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h3>
-<p>Using this mutation a number of different parameters can be updated. In the table below we share more details and their meaning.</p>
-<table>
-<thead>
-<tr><th>Field</th><th>Type</th><th>Description</th></tr>
-</thead>
-<tbody>
-<tr><td>parent_course</td><td>ID</td><td>An unique ID pointing to a different course that is the parent of this course</td></tr>
-<tr><td>price</td><td>Price</td><td>Price of the course</td></tr>
-<tr><td>period</td><td>String</td><td>A human readable description of when the course takes place e.g. 'summer of 2021'</td></tr>
-<tr><td>comment</td><td>String</td><td>Field to store a comment about this course</td></tr>
-<tr><td>subject</td><td>String</td><td>Details the subject of the course</td></tr>
-<tr><td>description</td><td>String</td><td>A complete description about the course that can be shown to users</td></tr>
-<tr><td>min_participants</td><td>Int</td><td>The minimal amount of participants required for this course to take place</td></tr>
-<tr><td>max_participants</td><td>Int</td><td>The maxmimum amount of participants for a course</td></tr>
-<tr><td>course_number</td><td>String</td><td>A number to identify the course</td></tr>
-<tr><td>project_code</td><td>String</td><td>A code to identify the project</td></tr>
-<tr><td>head_teacher_id</td><td>ID</td><td>Sets the relationship between the user (head teacher) and the course</td></tr>
-<tr><td>btw_id</td><td>ID</td><td>Sets the relationship between a BTW percentage and the course</td></tr>
-<tr><td>course_type</td><td>ID</td><td>Sets the relationship between a course type and the course</td></tr>
-<tr><td>content</td><td>String</td><td>Store information about the content of the course</td></tr>
-<tr><td>learning_goals</td><td>String</td><td>List of learning goals for the course</td></tr>
-<tr><td>template</td><td>Boolean</td><td>Indicates that the course is a template and users shouldn't sign up for this.</td></tr>
-<tr><td>archived</td><td>Boolean</td><td>Determines if the course is archived <strong>(1)</strong></td></tr>
-<tr><td>certificate_validity_months</td><td>Int</td><td>Amount of months the certificate will be valid for</td></tr>
-<tr><td>certificate_validity_start</td><td>DateTime</td><td>Indicates the moment that the certificate will become valid</td></tr>
-<tr><td>cancellation_date</td><td>DateTime</td><td>Indicates that the course has been cancelled</td></tr>
-</tbody>
-</table>
-<p><strong>(1) When the boolean of archived is set we automatically update the archived_date accordingly</strong></p>
-<h2><a class="anchor" aria-hidden="true" id="delete-a-course---administrators-only"></a><a href="#delete-a-course---administrators-only" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete a course - <strong>Administrators only</strong></h2>
+<p>In addition to the required parameters, the API accepts the following optional parameters.</p>
+<p><details>
+<summary>View parameters</summary>
+<code>parent_course: ID</code>  <br>
+<code>code: String</code>  <br>
+<code>price: Price</code>  <br>
+<code>period: String</code>  <br>
+<code>min_participants: Int</code>  <br>
+<code>max_participants: Int</code>  <br>
+<code>comment: String</code>  <br>
+<code>courseType: ID</code>  <br>
+<code>location: Int</code>  <br>
+<code>course_number: String</code>  <br>
+<code>project_code: String</code>  <br>
+<code>head_teacher: ID</code>  <br>
+<code>content: String</code>  <br>
+<code>learning_goals: String</code>  <br>
+<code>template: Boolean</code>  <br>
+<code>certificate_validity_months: Int</code>  <br>
+<code>certificate_validity_start: DateTime</code>  <br>
+<code>registration_end_date: DateTime</code>  <br>
+<code>registration_start_date: DateTime</code>
+<code>studies: [ID]</code>  <br>
+</details></p>
+<h2><a class="anchor" aria-hidden="true" id="updating-and-existing-course"></a><a href="#updating-and-existing-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updating and existing course</h2>
+<p>Administrators should be able to update a course for a number of different reasons. An example of such a reason is to update the price for a course. We offer this functionality through the <code>updateCourse</code> mutation.</p>
+<pre><code class="hljs css language-gql"><span class="hljs-selector-tag">mutation</span> {
+  <span class="hljs-selector-tag">updateCourse</span>(<span class="hljs-attribute">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attribute">price</span>: <span class="hljs-string">"80.00"</span>) {
+    <span class="hljs-selector-tag">id</span>
+    <span class="hljs-selector-tag">description</span>
+    <span class="hljs-selector-tag">price</span>
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value-5"></a><a href="#return-value-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>Assuming that the  request is successfull, and the user has provided his or her bearer token, the response should look something like this.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"updateCourse"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Computer Science"</span>,
+      <span class="hljs-attr">"price"</span>: <span class="hljs-string">"80.00"</span>
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-5"></a><a href="#authorization-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="required-parameters-2"></a><a href="#required-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h3>
+<p>This mutation has a single required parameter, the id of the course to be mutated:
+<details>
+<summary>View parameters</summary>
+<code>id: ID!</code>  <br>
+</details></p>
+<h3><a class="anchor" aria-hidden="true" id="optional-parameters-2"></a><a href="#optional-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h3>
+<p>In addition to the required parameters, the API accepts the following optional parameters.
+<details>
+<summary>View parameters</summary>
+<code>parent_course: ID</code>  <br>
+<code>price: Price</code>  <br>
+<code>period: String</code>  <br>
+<code>comment: String</code>  <br>
+<code>subject: String</code>  <br>
+<code>description: String</code>  <br>
+<code>min_participants: Int</code>  <br>
+<code>max_participants: Int</code>  <br>
+<code>course_number: String</code>  <br>
+<code>project_code: String</code>  <br>
+<code>head_teacher: ID</code>  <br>
+<code>courseType: ID</code>  <br>
+<code>content: String</code>  <br>
+<code>learning_goals: String</code>  <br>
+<code>template: Boolean</code>  <br>
+<code>archived: Boolean</code>  <br>
+<code>certificate_validity_months: Int</code>  <br>
+<code>certificate_validity_start: DateTime</code>  <br>
+<code>cancellation_time: DateTime</code>  <br>
+<code>registration_start_date: DateTime</code>  <br>
+<code>registration_end_date: DateTime</code>  <br>
+</details></p>
+<h2><a class="anchor" aria-hidden="true" id="deleting-an-existing-course"></a><a href="#deleting-an-existing-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deleting an existing course</h2>
 <p>Sometimes a course is no longer needed. In these cases we enable administrators to delete courses using one of two mutations: <code>deleteCourse</code> &amp; <code>forceDeleteCourse</code></p>
 <h3><a class="anchor" aria-hidden="true" id="difference-between-the-two-mutations"></a><a href="#difference-between-the-two-mutations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Difference between the two mutations</h3>
 <p>We offer two ways of deleting courses. The <code>deleteCourse</code> mutation uses a principle called soft deletion. This means that the soft deleted courses are no longer included in queries but they still remain in the database. This makes it possible to restore courses that are deleted by accident. This is done using the <code>restoreCourse</code> mutation.</p>
 <p>In contrast to this we also offer a solution for cases where a course should actually be deleted from the database. For those use cases we offer the <code>forceDeleteCourse</code> mutation.</p>
-<h3><a class="anchor" aria-hidden="true" id="delete-course"></a><a href="#delete-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Delete course</h3>
+<h2><a class="anchor" aria-hidden="true" id="soft-deleting-a-course"></a><a href="#soft-deleting-a-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Soft deleting a course</h2>
 <p>As described in the previous chapter this mutation makes use of a concept called soft deletion. This does not actually deletes the course from the database but simply makes sure that soft deleted courses are excluded from all queries.</p>
 <pre><code class="hljs css language-gql">mutation {
-  deleteCourse(<span class="hljs-built_in">id</span>: <span class="hljs-number">1</span>) {
+  deleteCourse(<span class="hljs-built_in">id</span>: <span class="hljs-number">2</span>) {
     <span class="hljs-built_in">id</span>
-    code
-    description
+    subject
     deleted_at
   }
 }
 </code></pre>
-<h4><a class="anchor" aria-hidden="true" id="restore-course"></a><a href="#restore-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Restore course</h4>
+<h4><a class="anchor" aria-hidden="true" id="return-value-6"></a><a href="#return-value-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>The (to be) deleted course will be returned.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"deleteCourse"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
+      <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Praktisch leidinggeven"</span>,
+      <span class="hljs-attr">"deleted_at"</span>: <span class="hljs-string">"2021-01-12 12:00:00"</span>
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-6"></a><a href="#authorization-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="required-parameters-3"></a><a href="#required-parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h3>
+<p>This mutation has a single required parameter, the id of the course to be soft deleted:
+<details>
+<summary>View parameters</summary>
+<code>id: ID!</code>  <br>
+</details></p>
+<h3><a class="anchor" aria-hidden="true" id="optional-parameters-3"></a><a href="#optional-parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h3>
+<p>This mutation has no optional parameters</p>
+<h2><a class="anchor" aria-hidden="true" id="restore-course"></a><a href="#restore-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Restore course</h2>
 <p>Sometimes a course has been deleted by accident or you might need to restore it for another reason. When it was deleted using the soft delete concept this is done using the <code>restoreCourse</code> mutation.</p>
 <pre><code class="hljs css language-gql">mutation {
-  restoreCourse(<span class="hljs-built_in">id</span>: <span class="hljs-number">1</span>) {
+  restoreCourse(<span class="hljs-built_in">id</span>: <span class="hljs-number">2</span>) {
     <span class="hljs-built_in">id</span>
-    code
-    description
+    subject
     deleted_at
   }
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="force-delete-course"></a><a href="#force-delete-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Force delete course</h3>
-<p>When simply excluding a course from queries isn't enough this mutation can be used to completely remove the course from the database.</p>
+<h4><a class="anchor" aria-hidden="true" id="return-value-7"></a><a href="#return-value-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>Assuming that the  request is successfull, and the user has provided his or her bearer token, the response should look something like this.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"restoreCourse"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
+      <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Praktisch leidinggeven"</span>,
+      <span class="hljs-attr">"deleted_at"</span>: <span class="hljs-literal">null</span>
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-7"></a><a href="#authorization-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="required-parameters-4"></a><a href="#required-parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h3>
+<p>This mutation has a single required parameter, the id of the course to be restored:
+<details>
+<summary>View parameters</summary>
+<code>id: ID!</code>  <br>
+</details></p>
+<h3><a class="anchor" aria-hidden="true" id="optional-parameters-4"></a><a href="#optional-parameters-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h3>
+<p>This mutation has no optional parameters</p>
+<h2><a class="anchor" aria-hidden="true" id="force-delete-course"></a><a href="#force-delete-course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Force delete course</h2>
+<p>When simply excluding a course from queries isn't enough, this mutation can be used to completely remove the course from the database.</p>
 <pre><code class="hljs css language-gql">mutation {
-  forceDeleteCourse(<span class="hljs-built_in">id</span>: <span class="hljs-number">1</span>) {
+  forceDeleteCourse(<span class="hljs-built_in">id</span>: <span class="hljs-number">7</span>) {
     <span class="hljs-built_in">id</span>
-    code
-    description
+    subject
     deleted_at
   }
 }
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 11/12/2020</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/Promptus-api-docs/docs/study-registration"><span class="arrow-prev">← </span><span>Study registration</span></a><a class="docs-next button" href="/Promptus-api-docs/docs/course-registration"><span>Course registration</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#basics">Basics</a></li><li><a href="#retrieving-courses">Retrieving courses</a><ul class="toc-headings"><li><a href="#obtaining-registrations-of-courses---administrators-only">Obtaining registrations of courses - <strong>Administrators only</strong></a></li></ul></li><li><a href="#get-course-by-id">Get course by id</a></li><li><a href="#registering-for-a-course">Registering for a course</a></li><li><a href="#create-a-course---administrators-only">Create a course - <strong>Administrators only</strong></a><ul class="toc-headings"><li><a href="#required-parameters">Required parameters</a></li><li><a href="#optional-parameters">Optional parameters</a></li></ul></li><li><a href="#update-a-course---administrators-only">Update a course - <strong>Administrators only</strong></a><ul class="toc-headings"><li><a href="#required-parameters-1">Required parameters</a></li><li><a href="#optional-parameters-1">Optional parameters</a></li></ul></li><li><a href="#delete-a-course---administrators-only">Delete a course - <strong>Administrators only</strong></a><ul class="toc-headings"><li><a href="#difference-between-the-two-mutations">Difference between the two mutations</a></li><li><a href="#delete-course">Delete course</a></li><li><a href="#force-delete-course">Force delete course</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/Promptus-api-docs/" class="nav-home"><img src="/Promptus-api-docs/img/Promptus-logo-03.svg" alt="Promptus API" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Promptus-api-docs/docs/getting-started.html">Getting Started</a><a href="/Promptus-api-docs/docs/doc2.html">Add more once PRs are merged</a></div><div><h5>Libraries</h5><a href="/Promptus-api-docs/docs/library-c-sharp.html">C# library</a><a href="/Promptus-api-docs/docs/library-php">PHP library</a><a href="/Promptus-api-docs/docs/library-javascript.html">Javascript library</a><a href="/Promptus-api-docs/docs/library-wordpress.html">Wordpress library</a></div></section><section class="copyright">Copyright © 2021 Devcake</section></footer></div></body></html>
+<blockquote>
+<p><strong>NOTE:</strong> You cannnot force delete courses that has registered users, since this would break existing relations. Opt to use softw delete, or remove the relations first.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="return-value-8"></a><a href="#return-value-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>Assuming that the  request is successfull, and the user has provided his or her bearer token, the response should look something like this.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"forceDeleteCourse"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">"7"</span>,
+      <span class="hljs-attr">"subject"</span>: <span class="hljs-string">"Asbest herkennen"</span>,
+      <span class="hljs-attr">"deleted_at"</span>: <span class="hljs-literal">null</span>
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p><strong>NOTE:</strong> Please note that hard deleting does not edit the deleted_at field. This field is only updated when soft deleting courses.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="authorization-8"></a><a href="#authorization-8" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
+<h3><a class="anchor" aria-hidden="true" id="required-parameters-5"></a><a href="#required-parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h3>
+<p>This mutation has a single required parameter, the id of the course to be mutated:
+<details>
+<summary>View parameters</summary>
+<code>id: ID!</code>  <br>
+</details></p>
+<h3><a class="anchor" aria-hidden="true" id="optional-parameters-5"></a><a href="#optional-parameters-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h3>
+<p>This mutation has no optional parameters</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/12/2021</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/Promptus-api-docs/docs/user"><span class="arrow-prev">← </span><span>Users</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#course-participants">Course participants</a></li><li><a href="#courses-hierarchy">Courses hierarchy</a></li><li><a href="#get-course-by-id">Get course by id</a></li><li><a href="#get-a-list-of-all-courses">Get a list of all courses</a><ul class="toc-headings"><li><a href="#obtaining-registrations-of-courses">Obtaining registrations of courses</a></li></ul></li><li><a href="#registering-for-a-course">Registering for a course</a></li><li><a href="#creating-a-new-course">Creating a new course</a><ul class="toc-headings"><li><a href="#required-parameters-1">Required parameters</a></li><li><a href="#optional-parameters-1">Optional parameters</a></li></ul></li><li><a href="#updating-and-existing-course">Updating and existing course</a><ul class="toc-headings"><li><a href="#required-parameters-2">Required parameters</a></li><li><a href="#optional-parameters-2">Optional parameters</a></li></ul></li><li><a href="#deleting-an-existing-course">Deleting an existing course</a><ul class="toc-headings"><li><a href="#difference-between-the-two-mutations">Difference between the two mutations</a></li></ul></li><li><a href="#soft-deleting-a-course">Soft deleting a course</a><ul class="toc-headings"><li><a href="#required-parameters-3">Required parameters</a></li><li><a href="#optional-parameters-3">Optional parameters</a></li></ul></li><li><a href="#restore-course">Restore course</a><ul class="toc-headings"><li><a href="#required-parameters-4">Required parameters</a></li><li><a href="#optional-parameters-4">Optional parameters</a></li></ul></li><li><a href="#force-delete-course">Force delete course</a><ul class="toc-headings"><li><a href="#required-parameters-5">Required parameters</a></li><li><a href="#optional-parameters-5">Optional parameters</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/Promptus-api-docs/" class="nav-home"><img src="/Promptus-api-docs/img/Promptus-logo-03.svg" alt="Promptus API" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Promptus-api-docs/docs/getting-started.html">Getting Started</a><a href="/Promptus-api-docs/docs/doc2.html">Add more once PRs are merged</a></div><div><h5>Libraries</h5><a href="/Promptus-api-docs/docs/library-c-sharp.html">C# library</a><a href="/Promptus-api-docs/docs/library-php">PHP library</a><a href="/Promptus-api-docs/docs/library-javascript.html">Javascript library</a><a href="/Promptus-api-docs/docs/library-wordpress.html">Wordpress library</a></div></section><section class="copyright">Copyright © 2021 Devcake</section></footer></div></body></html>
