@@ -1,0 +1,471 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Users · Promptus API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The user is at the core of the Promptus API. On this page, we will discuss the queries, mutations, and fields related to users. Detailed information of the User entity can be found in the API reference."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Users · Promptus API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://devcake-deventer.github.io/Promptus-api-docs/"/><meta property="og:description" content="The user is at the core of the Promptus API. On this page, we will discuss the queries, mutations, and fields related to users. Detailed information of the User entity can be found in the API reference."/><meta property="og:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Promptus-api-docs/img/Promptus-icon-hat.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Promptus-api-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/Promptus-api-docs/css/main.css"/><script src="/Promptus-api-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Promptus-api-docs/"><img class="logo" src="/Promptus-api-docs/img/Promptus-icon-hat.svg" alt="Promptus API"/><h2 class="headerTitleWithLogo">Promptus API</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/Promptus-api-docs/docs/getting-started" target="_self">Docs</a></li><li class=""><a href="/Promptus-api-docs/docs/api" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Entities</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Using the API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/authenticating-user">User Authentication</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Entities<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/Promptus-api-docs/docs/user">Users</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/course">Courses</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/course-registration">Course registration</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/plannings">Planning Objects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Advanced topics<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/advanced">Advanced Topics</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Users</h1></header><article><div><span><p>The user is at the core of the Promptus API. On this page, we will discuss the queries, mutations, and fields related to users. Detailed information of the User entity can be found in the API reference.</p>
+<h2><a class="anchor" aria-hidden="true" id="roles"></a><a href="#roles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Roles</h2>
+<p>Primarily, users are people that want to register for courses. We call these users 'students'.<br>
+Of course, their teachers can also be users. As can the employees working in the back-office of the teaching institute company. Every person who has registered in your Promptus system is in fact a user. To identify who does what, we can assign users with one or more roles. Each role has permissions, which can be required for certain queries and mutations. Learn more about this on the <a href="/Promptus-api-docs/docs/authenticating-user">Authenticate User</a> page. We identify the following roles:</p>
+<ul>
+<li>Student</li>
+<li>Teacher</li>
+<li>Actor</li>
+<li>Account manager</li>
+<li>Employee</li>
+<li>Admin</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="get-active-user"></a><a href="#get-active-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get active user</h2>
+<p>If in any case you want to return the user that is currently active (logged in), you can do so using the <code>me</code> query:</p>
+<pre><code class="hljs css language-gql">{
+  <span class="hljs-keyword">me</span> {
+    <span class="hljs-built_in">id</span>
+    fullName
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value"></a><a href="#return-value" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns the active user, based on provided bearer token.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"me"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization"></a><a href="#authorization" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Requires user to provide their access (bearer) token.</p>
+<h2><a class="anchor" aria-hidden="true" id="get-user-by-id"></a><a href="#get-user-by-id" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get user by id</h2>
+<p>You can query specific users by their id:</p>
+<pre><code class="hljs css language-gql">{
+ <span class="hljs-built_in"> user </span>(1) {
+    id
+    fullName
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value-1"></a><a href="#return-value-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns the user with the corresponding id.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"me"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-1"></a><a href="#authorization-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>None.</p>
+<h2><a class="anchor" aria-hidden="true" id="search-users-by-search_code"></a><a href="#search-users-by-search_code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Search users by search_code</h2>
+<p>You can query specific users by search code:</p>
+<pre><code class="hljs css language-gql">{
+  searchUsers (<span class="hljs-string">"John"</span>) {
+    id
+    fullName
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value-2"></a><a href="#return-value-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns the active user, based on provided bearer token.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"searchUsers"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-2"></a><a href="#authorization-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>None.</p>
+<h2><a class="anchor" aria-hidden="true" id="get-a-paginated-list-of-all-users"></a><a href="#get-a-paginated-list-of-all-users" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get a paginated list of all users</h2>
+<p>You can get a complete, paginated list of all users. Learn more about pagination in GraphQL, <a href="https://graphql.org/learn/pagination/">here</a>. By default, we get a list of 10 users:</p>
+<pre><code class="hljs css language-gql">{
+  users() {
+    first_name
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value-3"></a><a href="#return-value-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns the active user, based on provided bearer token.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"users"</span>: {
+      <span class="hljs-attr">"data"</span>: [
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Jim"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"David"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Sarah"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Nathan"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Edward"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Lisa"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Tom"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Luke"</span>
+        },
+        {
+          <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Laura"</span>
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-3"></a><a href="#authorization-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="get-a-list-of-all-users-with-a-specific-role"></a><a href="#get-a-list-of-all-users-with-a-specific-role" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get a list of all users with a specific role</h2>
+<p>You can get a list of all users with a specific role:</p>
+<pre><code class="hljs css language-gql">{
+  usersByRole(<span class="hljs-name">role:</span> <span class="hljs-string">"students"</span>) {
+    first_name
+    is_student
+  }
+}
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Provided role must be one of the following: account_managers, actors, administrators, employees, students, teachers.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="return-value-4"></a><a href="#return-value-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>This returns the active user, based on provided bearer token.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"usersByRole"</span>: [
+      {
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>,
+        <span class="hljs-attr">"is_student"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Jim"</span>,
+        <span class="hljs-attr">"is_student"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"David"</span>,
+        <span class="hljs-attr">"is_student"</span>: <span class="hljs-literal">true</span>
+      },
+      {
+        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Edward"</span>,
+        <span class="hljs-attr">"is_student"</span>: <span class="hljs-literal">true</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-4"></a><a href="#authorization-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code>.</p>
+<h2><a class="anchor" aria-hidden="true" id="registering-a-new-user"></a><a href="#registering-a-new-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Registering a new user</h2>
+<p>To add a user, we will have to register him or her. As discussed in the <a href="/Promptus-api-docs/docs/getting-started">getting started page</a>, the only way to add data is by using mutations. The mutation to register a user is called: <code>registerUser</code>:</p>
+<pre><code class="hljs css language-gql">mutation {
+  register<span class="hljs-constructor">User(<span class="hljs-params">input</span>: {<span class="hljs-params">first_name</span>: <span class="hljs-string">"John"</span>, <span class="hljs-params">surname</span>: <span class="hljs-string">"Doe"</span> <span class="hljs-params">email</span>: <span class="hljs-string">"johndoe@example.com"</span>, <span class="hljs-params">password</span>: <span class="hljs-string">"secret"</span>})</span> {
+    id
+    first_name
+  }
+}
+
+
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> It is up to you (the client application) to implement features like input validation.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="return-value-5"></a><a href="#return-value-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>The mutation returns the newly created user.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"registerUser"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>,
+      <span class="hljs-attr">"teacher"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-literal">null</span> <span class="hljs-comment">// John was not assigned the role of teacher upon registration. </span>
+      },
+      <span class="hljs-attr">"student"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span> <span class="hljs-comment">// John will automatically be assigned the role of student, since no other role was given. </span>
+      }
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-5"></a><a href="#authorization-5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>none.</p>
+<h4><a class="anchor" aria-hidden="true" id="required-parameters"></a><a href="#required-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h4>
+<p>In order to register a user the following parameters have to be provided. Failing to provide any of the following parameters will result in an error being thrown.
+<details>
+<summary>View parameters</summary>
+<code>first_name: String</code>  <br>
+<code>surname: String</code>  <br>
+<code>email: String</code> <em>Has to be unique</em>  <br>
+<code>password: String</code>
+</details></p>
+<h4><a class="anchor" aria-hidden="true" id="optional-parameters"></a><a href="#optional-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h4>
+<p>In addition to the required parameters, the API accepts the following optional parameters.</p>
+<p><details>
+<summary>View parameters</summary></p>
+<p><code>title: String</code>  <br>
+<code>initials: String</code>  <br>
+<code>surname_prefix: String</code>  <br>
+<code>suffix: String</code>   <br>
+<code>address: String</code>  <br>
+<code>postal_code: String</code>  <br>
+<code>city: String</code>  <br>
+<code>phone_number: String</code>  <br>
+<code>alternative_contact_number: String</code>  <br>
+<code>gsm_number: String</code>  <br>
+<code>date_of_birth: DateTime</code>  <br>
+<code>place_of_birth: String</code>  <br>
+<code>search_code: Boolean</code> <em>Required role: admin</em>  <br>
+<code>actor: Boolean</code> <em>Required role: admin. When true, assigns the role of actor to this user</em>  <br>
+<code>employee: Boolean</code> <em>Required role: admin. When true, assigns the role of employee to this user</em>  <br>
+<code>teacher: Boolean</code> <em>Required role: admin. When true, assigns the role of teacher to this user</em>  <br>
+<code>student: Boolean</code> <em>Required role: admin. When true, assigns the role of student to this user</em>  <br>
+<code>accountManager: Boolean</code> <em>Required role: admin. When true, assigns the role of account manager to this user</em>  <br>
+<code>debtor_number: String</code> <em>Required role: admin</em>  <br>
+<code>member: Boolean</code> <em>Required role: admin</em>  <br>
+<code>comment: String</code> <em>Required role: admin</em>   <br>
+<code>default_discount: Float</code> <em>Required role: admin</em>  <br>
+<code>receive_mailing: Boolean</code>  <br>
+<code>invoice_digitally: Boolean</code>  <br>
+<code>ID_number: String</code>  <br>
+<code>contact_person: Boolean</code> <em>Required role: admin</em>  <br>
+<code>education_end_year: String</code>  <br>
+<code>IBAN: String</code>  <br>
+<code>BSN: String</code>  <br>
+<code>invoice_email_address: String</code>  <br>
+<code>ID_number: String</code>  <br>
+<code>nationality: ID</code>  <br>
+<code>country: ID</code>  <br>
+<code>university: ID</code>  <br>
+<code>education: ID</code>  <br>
+<code>IDDocumentType: ID</code>  <br>
+<code>companyUsers: [CreateCompanyUserInput]</code> <em>See section &quot;Assigning a new user to company&quot; below</em>
+</details></p>
+<blockquote>
+<p><strong>Note:</strong> If no role is assigned when registering, the user will automatically be assigned to role of student.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="assigning-a-new-user-to-company"></a><a href="#assigning-a-new-user-to-company" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Assigning a new user to company</h3>
+<p>With the <code>companyUsers</code> field, it is possible to directly assign a new user to a company. Within this pivot, you can provide the following parameters:</p>
+<h4><a class="anchor" aria-hidden="true" id="required-parameters-1"></a><a href="#required-parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h4>
+<p>In order to assign a user the a company upon registration, the following parameters have to be provided. Failing to provide any of the following parameters will result in an error being thrown.
+<details>
+<summary>View parameters</summary>
+<code>company_id: ID!</code>
+</details></p>
+<h4><a class="anchor" aria-hidden="true" id="optional-parameters-1"></a><a href="#optional-parameters-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h4>
+<p>In addition to the required parameters, the API accepts the following optional parameters.</p>
+<p><details>
+<summary>View parameters</summary>
+<code>code: String</code>
+<code>personnel_number: String</code>
+<code>FTE: Float</code>
+<code>mail_to_office_address: Boolean</code>
+<code>division: String</code>
+<code>business_email: String</code>
+<code>position_id: ID</code>
+<code>position_group_id: ID</code>
+<code>position_description: String</code>
+<code>position_start_date: DateTime</code>
+<code>position_end_date: DateTime</code>
+<code>addition_positions: String</code>
+<code>business_bank_account: String</code>
+<code>business_phone_number: String</code>
+<code>business_fax_number: String</code>
+<code>business_gsm_number: String</code>
+<code>primary_address: Boolean</code>
+</details></p>
+<h2><a class="anchor" aria-hidden="true" id="updating-an-existing-user"></a><a href="#updating-an-existing-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updating an existing user</h2>
+<p>There are various reasons why users might want to update their own information. An example of this can be that the user wants to add extra contact information. It's also possible for admins to change information of other users. To account for these situations we provide the <code>updateProfileInformation</code> mutation:</p>
+<pre><code class="hljs css language-gql"><span class="hljs-selector-tag">mutation</span> {
+  <span class="hljs-selector-tag">updateProfileInformation</span>(<span class="hljs-attribute">gsm_number</span>: <span class="hljs-string">"0612345678"</span>) {
+    <span class="hljs-selector-tag">first_name</span>
+    <span class="hljs-selector-tag">gsm_number</span>
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value-6"></a><a href="#return-value-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>Assuming that the  request is successfull, and the user has provided his or her bearer token, the response should look something like this.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"updateProfileInformation"</span>: {
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>,
+      <span class="hljs-attr">"gsm_number"</span>: <span class="hljs-string">"0612345678"</span>,
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-6"></a><a href="#authorization-6" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Required roles: <code>admin</code> (when updating other users).<br>
+Users with other roles can update their own information if they have provided their user (bearer) token.</p>
+<blockquote>
+<p><strong>Note:</strong> When an admin wants to update another user, that user has to be identified by providing the <code>id</code> field. When leaving out the <code>id</code> field, this mutation assumes you are updating the current user, which is determined by the bearer token.</p>
+</blockquote>
+<h4><a class="anchor" aria-hidden="true" id="required-parameters-2"></a><a href="#required-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h4>
+<p>There are no required fields for this mutation.</p>
+<h4><a class="anchor" aria-hidden="true" id="optional-parameters-2"></a><a href="#optional-parameters-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h4>
+<p>This mutation accepts the following optional parameters.
+<details>
+<summary>View parameters</summary></p>
+<p><code>user: ID</code> <em>When left out, the API will determine the user based on the provided access token</em>  <br>
+<code>title: String</code>  <br>
+<code>first_name: String</code>  <br>
+<code>surname: String</code>  <br>
+<code>initials: String</code>  <br>
+<code>email: String</code> <em>has to be unique</em>  <br>
+<code>surname_prefix: String</code>  <br>
+<code>suffix: String</code>  <br>
+<code>date_of_birth: DateTime</code>  <br>
+<code>place_of_birth: String</code>  <br>
+<code>education_end_year: String</code>  <br>
+<code>IBAN: String</code>  <br>
+<code>receive_mailing: Boolean</code>  <br>
+<code>invoice_digitally: Boolean</code>  <br>
+<code>invoice_email_address: String</code>  <br>
+<code>address: String</code>  <br>
+<code>postal_code: String</code>  <br>
+<code>city: String</code>  <br>
+<code>phone_number: String</code>  <br>
+<code>alternative_contact_number: String</code>  <br>
+<code>gsm_number: String</code>  <br>
+<code>password: String</code>  <br>
+<code>old_password: String</code>  <br>
+<code>ID_Number: String</code>  <br>
+<code>actor: Boolean</code> <em>Required role: admin</em>  <br>
+<code>employee: Boolean</code> <em>Required role: admin</em>  <br>
+<code>teacher: Boolean</code> <em>Required role: admin</em>  <br>
+<code>student: Boolean</code> <em>Required role: admin</em>  <br>
+<code>accountManager: Boolean</code> <em>Required role: admin</em>  <br>
+<code>search_code: String</code> <em>Required role: admin</em>  <br>
+<code>contact_person: Boolean</code> <em>Required role: admin</em>  <br>
+<code>debtor_number: String</code> <em>Required role: admin</em>  <br>
+<code>member: Boolean</code> <em>Required role: admin</em>  <br>
+<code>comment: String</code> <em>Required role: admin</em>  <br>
+<code>default_discount: Float</code> <em>Required role: admin</em>  <br>
+<code>BSN: String</code><em>Required role: admin</em>  <br>
+<code>allow_registration: Boolean</code> <em>Required role: admin</em>  <br>
+<code>deceased: Boolean</code> <em>Required role: admin</em></p>
+<p></details></p>
+<h2><a class="anchor" aria-hidden="true" id="setting-multirelationships"></a><a href="#setting-multirelationships" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Setting (multi)relationships</h2>
+<p>TODO</p>
+<p>Storing related models for the user currently works in one of two ways. The first is by providing the ID of the related model for one to many relationships. Examples of this are: <code>nationality, country, university etc.</code>. An error will be thrown when the relationship doesn't yet exists. When working with many to many relationships like <code>companyUsers</code> we can set multiple models using the solution below.</p>
+<pre><code class="hljs css language-gql"><span class="hljs-class">mutation </span>{
+    registerUser(
+<span class="hljs-symbol">      first_name:</span> <span class="hljs-string">"John"</span>,
+<span class="hljs-symbol">      surname:</span> <span class="hljs-string">"Doe"</span>,
+<span class="hljs-symbol">      email:</span> <span class="hljs-string">"john_doe@test.com"</span>,
+<span class="hljs-symbol">      password:</span> <span class="hljs-string">"secret"</span>) 
+<span class="hljs-symbol">      companyUsers:</span> [{code: <span class="hljs-number">7</span>}, {code: <span class="hljs-number">42</span>}]
+    ){
+        first_name
+        <span class="hljs-class">companyUsers </span>{
+          code
+        }
+    }
+}
+</code></pre>
+<p>As you can see the only required parameter for a companyUser is <code>code</code>. Omitting this parameter will result in an error being thrown by the system. Behind the scenes we automatically look for an already matching code and use this model if it exists.</p>
+<h2><a class="anchor" aria-hidden="true" id="upload-avatar"></a><a href="#upload-avatar" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upload avatar</h2>
+<p>TODO</p>
+<p>Users can set an avatar to display within the mobile dashboard and other, custom Promptus software.</p>
+<pre><code class="hljs css language-gql"><span class="hljs-selector-tag">mutation</span> {
+  <span class="hljs-selector-tag">uploadAvatar</span>(<span class="hljs-attribute">file</span>: <span class="hljs-string">"0612345678"</span>) {
+    <span class="hljs-selector-tag">first_name</span>
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="return-value-7"></a><a href="#return-value-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Return value</h4>
+<p>Assuming that the  request is successfull, and the user has provided his or her bearer token, this mutation returns the user.</p>
+<pre><code class="hljs css language-json">{
+ <span class="hljs-attr">"operations"</span>: {<span class="hljs-attr">"query"</span>: <span class="hljs-string">"mutation ($file: Upload!) {userFileUpload(file: $file) {file_url}}"</span>},
+ <span class="hljs-attr">"map"</span>: {<span class="hljs-attr">"file"</span>: [<span class="hljs-string">"variables.file"</span>]},
+ <span class="hljs-attr">"file"</span>: <span class="hljs-string">"file.jpg"</span>
+}
+</code></pre>
+<p>Using a REST client e.g. postman this should look similair to the image below</p>
+<p><img src="/img/rest-client-example.png" alt="Fileupload REST client example"></p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"uploadAvatar"</span>: {
+      <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"John"</span>,
+    }
+  }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="authorization-7"></a><a href="#authorization-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Authorization</h4>
+<p>Requires user to provide their access (bearer) token.</p>
+<h4><a class="anchor" aria-hidden="true" id="required-parameters-3"></a><a href="#required-parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required parameters</h4>
+<p>This mutation requires the file field to be provided.</p>
+<h4><a class="anchor" aria-hidden="true" id="optional-parameters-3"></a><a href="#optional-parameters-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional parameters</h4>
+<p>There are no optional fields for this mutation.</p>
+<h4><a class="anchor" aria-hidden="true" id="file-requirements"></a><a href="#file-requirements" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>File requirements</h4>
+<p>In order to keep everything running as expected we have a few requirements for files. Currently we only support files with a maximum size of <strong>5 mb</strong>. Apart from this we only support storing files of the following type:</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"supportedFileTypes"</span>: [<span class="hljs-string">"jpg"</span>, <span class="hljs-string">"jpeg"</span>, <span class="hljs-string">"png"</span>, <span class="hljs-string">"pdf"</span>, <span class="hljs-string">"gif"</span>]
+}
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/10/2021</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/Promptus-api-docs/docs/authenticating-user"><span class="arrow-prev">← </span><span>User Authentication</span></a><a class="docs-next button" href="/Promptus-api-docs/docs/course"><span>Courses</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#roles">Roles</a></li><li><a href="#get-active-user">Get active user</a></li><li><a href="#get-user-by-id">Get user by id</a></li><li><a href="#search-users-by-search_code">Search users by search_code</a></li><li><a href="#get-a-paginated-list-of-all-users">Get a paginated list of all users</a></li><li><a href="#get-a-list-of-all-users-with-a-specific-role">Get a list of all users with a specific role</a></li><li><a href="#registering-a-new-user">Registering a new user</a><ul class="toc-headings"><li><a href="#assigning-a-new-user-to-company">Assigning a new user to company</a></li></ul></li><li><a href="#updating-an-existing-user">Updating an existing user</a></li><li><a href="#setting-multirelationships">Setting (multi)relationships</a></li><li><a href="#upload-avatar">Upload avatar</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/Promptus-api-docs/" class="nav-home"><img src="/Promptus-api-docs/img/Promptus-logo-03.svg" alt="Promptus API" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Promptus-api-docs/docs/getting-started.html">Getting Started</a><a href="/Promptus-api-docs/docs/doc2.html">Add more once PRs are merged</a></div><div><h5>Libraries</h5><a href="/Promptus-api-docs/docs/library-c-sharp.html">C# library</a><a href="/Promptus-api-docs/docs/library-php">PHP library</a><a href="/Promptus-api-docs/docs/library-javascript.html">Javascript library</a><a href="/Promptus-api-docs/docs/library-wordpress.html">Wordpress library</a></div></section><section class="copyright">Copyright © 2021 Devcake</section></footer></div></body></html>

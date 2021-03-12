@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Getting Started · Promptus API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Welcome to the Promptus API documentation. In these documentation pages, we&#x27;ll get you up to speed with the usage of our API. Using our API you&#x27;ll be able to integrate various Promptus features into your own website or application, including user registration, creating and managing courses, and creating invoices."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Getting Started · Promptus API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://devcake-deventer.github.io/Promptus-api-docs/"/><meta property="og:description" content="Welcome to the Promptus API documentation. In these documentation pages, we&#x27;ll get you up to speed with the usage of our API. Using our API you&#x27;ll be able to integrate various Promptus features into your own website or application, including user registration, creating and managing courses, and creating invoices."/><meta property="og:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Promptus-api-docs/img/Promptus-icon-hat.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Promptus-api-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/Promptus-api-docs/css/main.css"/><script src="/Promptus-api-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Promptus-api-docs/"><img class="logo" src="/Promptus-api-docs/img/Promptus-icon-hat.svg" alt="Promptus API"/><h2 class="headerTitleWithLogo">Promptus API</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive siteNavItemActive"><a href="/Promptus-api-docs/docs/getting-started" target="_self">Docs</a></li><li class=""><a href="/Promptus-api-docs/docs/api" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Using the API</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Using the API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/Promptus-api-docs/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/authenticating-user">User Authentication</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Entities<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/user">Users</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/course">Courses</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/course-registration">Course registration</a></li><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/plannings">Planning Objects</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Advanced topics<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/Promptus-api-docs/docs/advanced">Advanced Topics</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Getting Started</h1></header><article><div><span><p>Welcome to the Promptus API documentation. In these documentation pages, we'll get you up to speed with the usage of our API. Using our API you'll be able to integrate various Promptus features into your own website or application, including user registration, creating and managing courses, and creating invoices.</p>
+<h2><a class="anchor" aria-hidden="true" id="before-we-get-started"></a><a href="#before-we-get-started" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Before we get started...</h2>
+<h3><a class="anchor" aria-hidden="true" id="graphql"></a><a href="#graphql" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>GraphQL</h3>
+<p>Since our API follows the GraphQL specifications, we assume you have basic knowledge of consuming GraphQL APIs. GraphQL makes querying and mutating data very easy. It also enables you to specify which data you want to receive. Libraries for GraphQL exist in every major language to make this even easier, such as <a href="https://github.com/graphql-dotnet/graphql-client">C#/.NET</a>, <a href="https://www.apollographql.com/docs/">JavaScript</a>, and <a href="https://graphql.org/code/">numerous others</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> Some API calls - such as logging users in and resetting passwords - do not use GraphQL. These API calls will be specified on these pages.</p>
+</blockquote>
+<h3><a class="anchor" aria-hidden="true" id="promptus-license"></a><a href="#promptus-license" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Promptus license</h3>
+<p>Additionally, we assume your company is a Promptus customer with a valid license to use our API. If this is not the case (yet), please contact Promptus to become a customer!</p>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="using-provided-details"></a><a href="#using-provided-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using provided details</h2>
+<p>When your company has subscribed to become a Promptus client, an initial administrator account will be created for you. You'll also receive an email with details to connect to your own secure environment within Promptus. The email contains the following information, which is required to communicate with our API:</p>
+<ul>
+<li>Subdomain<br>
+Your company has a unique subdomain, which should be used in all API calls to specify your company's secured environment:</li>
+</ul>
+<pre><code class="hljs"><span class="hljs-symbol">https:</span><span class="hljs-comment">//{subdomain}.api.lll.academy/graphql</span>
+</code></pre>
+<ul>
+<li>Promptus application token<br>
+The Promptus application token should be included in the headers of every request. It is used to identify and validate your company as a valid Promptus client:</li>
+</ul>
+<pre><code class="hljs">  <span class="hljs-string">"Content-Type"</span>: <span class="hljs-string">"application/json"</span>,
+  <span class="hljs-string">"X-Promptus-Authentication"</span>: <span class="hljs-string">"<span class="hljs-variable">$APP_TOKEN</span>"</span>
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Not providing the application/json may result in unexpected results when a non-valid token is provided</p>
+</blockquote>
+<p>When you fail to provide a valid token an error will be returned in the form of a JSON response. The request will fail with status code <strong>412</strong> and the response matches the one below.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"A non-valid app token is provided. Please make sure you're providing a valid one"</span>
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="your-first-query"></a><a href="#your-first-query" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Your First Query</h2>
+<p>So how does our GraphQL API work, exactly? To illustrate that, we will build a simple query to get an overview of all available courses. To achieve this, the body of your request should look like this:</p>
+<pre><code class="hljs css language-gql">{
+    courses {
+        id
+        code
+        description
+    }
+}
+</code></pre>
+<p>Remember to include the 'X-Promptus-Authentication' and 'Content-Type' header, that we specified earlier. Because this is GraphQL, you should always use the POST method in your request. The endpoint is, per GraphQL specification, 'graphql', making the complete URL:</p>
+<pre><code class="hljs"><span class="hljs-symbol">https:</span><span class="hljs-comment">//{subdomain}.api.lll.academy/graphql</span>
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> We advise using a tool like Insomnia to play around with our API. Insomnia's editor also provides auto-complete features and more detailed, field-specific documentation.</p>
+</blockquote>
+<p>Depending on the contents of your database, the response should look something like this:</p>
+<!-- Todo: check if response is proper-->
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"courses"</span>: [
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"code"</span>: <span class="hljs-string">"CS-101"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Introduction to computer science"</span> 
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">"code"</span>: <span class="hljs-string">"CS-102"</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The basics of computer science"</span> 
+      }
+    ]
+  }
+}
+</code></pre>
+<p>This query retrieves the id, code, and description of the current courses. But what if we don't need the code, and instead want to know the price and how many places are still available? We can simply change the query like so:</p>
+<pre><code class="hljs css language-diff">{
+    courses {
+        id
+<span class="hljs-deletion">-       code</span>
+        description
+<span class="hljs-addition">+       price</span>
+<span class="hljs-addition">+       available_places</span>
+    }
+}
+</code></pre>
+<p>Your response should now change accordingly:</p>
+<!-- Todo: check if response is proper-->
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"courses"</span>: [
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Introduction to computer science"</span>,
+        <span class="hljs-attr">"price"</span>: <span class="hljs-string">"100"</span>,
+        <span class="hljs-attr">"available_places"</span>: <span class="hljs-number">22</span>
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The basics of computer science"</span>,
+        <span class="hljs-attr">"price"</span>: <span class="hljs-string">"200"</span>,
+        <span class="hljs-attr">"available_places"</span>: <span class="hljs-number">18</span>
+      }
+    ]
+  }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="mutations"></a><a href="#mutations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mutations</h2>
+<p>When using GraphQL requests that create, update or delete data on the are called mutations. An example of a simple mutation is shown below. Depending on the query or mutation, you may need to provide one or more parameters.</p>
+<pre><code class="hljs css language-gql">mutation {
+    mutation<span class="hljs-constructor">_name(<span class="hljs-params">param</span>: <span class="hljs-params">value</span>, <span class="hljs-params">param2</span>: <span class="hljs-params">value</span>)</span> {
+        field1,
+        field2
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="errors"></a><a href="#errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Errors</h2>
+<p>Due to the inner workings of GraphQl, when an error has been encountered the status code still is <strong>200</strong>. This makes it especially important to provide consistent error handling. Fortunatily, when an error has been encountered the response <strong>always</strong> contains an error array with the errors encountered. For example, the mutation shown below is missing a required parameter.</p>
+<pre><code class="hljs css language-gql">mutation {
+  register<span class="hljs-constructor">User(<span class="hljs-params">input</span>: {<span class="hljs-params">first_name</span>: <span class="hljs-string">"John"</span>, <span class="hljs-params">email</span>: <span class="hljs-string">"john-doe@test.nl"</span>, <span class="hljs-params">password</span>: <span class="hljs-string">"secret"</span>})</span> {
+    id
+    first_name
+  }
+}
+</code></pre>
+<p>This will result in the following error to be thrown.</p>
+<pre><code class="hljs css language-json">{
+  <span class="hljs-attr">"errors"</span>: [
+    {
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Field RegisterUserInput.surname of required type String! was not provided."</span>,
+      <span class="hljs-attr">"extensions"</span>: {
+        <span class="hljs-attr">"category"</span>: <span class="hljs-string">"graphql"</span>
+      },
+      <span class="hljs-attr">"locations"</span>: [
+        {
+          <span class="hljs-attr">"line"</span>: <span class="hljs-number">2</span>,
+          <span class="hljs-attr">"column"</span>: <span class="hljs-number">23</span>
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="loading-relations"></a><a href="#loading-relations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Loading Relations</h2>
+<p>It is also possible to load related objects in a single query. For example, you might want to show accreditations or study points.</p>
+<pre><code class="hljs css language-diff">{
+    courses {
+        id
+        description
+<span class="hljs-addition">+       studyPoints { </span>
+<span class="hljs-addition">+           points </span>
+<span class="hljs-addition">+           description</span>
+<span class="hljs-addition">+       }</span>
+<span class="hljs-addition">+       accreditations {</span>
+<span class="hljs-addition">+           name</span>
+<span class="hljs-addition">+       }</span>
+    }
+}
+</code></pre>
+<p>An object can even have references to its own type. For example, courses can have a parent-course and multiple sub-courses. When you request relations, you can specify the fields, similar to a normal query.</p>
+<pre><code class="hljs css language-diff">{
+    courses {
+        id
+        description
+<span class="hljs-addition">+       parentCourse {</span>
+<span class="hljs-addition">+           code</span>
+<span class="hljs-addition">+       }</span>
+<span class="hljs-addition">+       subCourses {</span>
+<span class="hljs-addition">+           subject</span>
+<span class="hljs-addition">+       }</span>
+    }
+}
+</code></pre>
+<hr>
+<h2><a class="anchor" aria-hidden="true" id="next-steps"></a><a href="#next-steps" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Next steps</h2>
+<p>Now that you are up to speed with the basics of our API, feel free to explore other pages and start integrating Promptus into your application. We recommend checking out the <a href="/Promptus-api-docs/docs/authenticating-user">User Authentication</a> page. Here, we'll explain how users can log in.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/11/2021</em></div><div class="docs-prevnext"><a class="docs-next button" href="/Promptus-api-docs/docs/authenticating-user"><span>User Authentication</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#before-we-get-started">Before we get started...</a><ul class="toc-headings"><li><a href="#graphql">GraphQL</a></li><li><a href="#promptus-license">Promptus license</a></li></ul></li><li><a href="#using-provided-details">Using provided details</a></li><li><a href="#your-first-query">Your First Query</a></li><li><a href="#mutations">Mutations</a></li><li><a href="#errors">Errors</a></li><li><a href="#loading-relations">Loading Relations</a></li><li><a href="#next-steps">Next steps</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/Promptus-api-docs/" class="nav-home"><img src="/Promptus-api-docs/img/Promptus-logo-03.svg" alt="Promptus API" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Promptus-api-docs/docs/getting-started.html">Getting Started</a><a href="/Promptus-api-docs/docs/doc2.html">Add more once PRs are merged</a></div><div><h5>Libraries</h5><a href="/Promptus-api-docs/docs/library-c-sharp.html">C# library</a><a href="/Promptus-api-docs/docs/library-php">PHP library</a><a href="/Promptus-api-docs/docs/library-javascript.html">Javascript library</a><a href="/Promptus-api-docs/docs/library-wordpress.html">Wordpress library</a></div></section><section class="copyright">Copyright © 2021 Devcake</section></footer></div></body></html>

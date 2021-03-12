@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Studies · Promptus API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Courses may be bundled into studies to allow users to quickly find what they are looking for."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Studies · Promptus API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://devcake-deventer.github.io/Promptus-api-docs/"/><meta property="og:description" content="Courses may be bundled into studies to allow users to quickly find what they are looking for."/><meta property="og:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Promptus-api-docs/img/Promptus-icon-hat.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Promptus-api-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/Promptus-api-docs/css/main.css"/><script src="/Promptus-api-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Promptus-api-docs/"><img class="logo" src="/Promptus-api-docs/img/Promptus-icon-hat.svg" alt="Promptus API"/><h2 class="headerTitleWithLogo">Promptus API</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Promptus-api-docs/docs/getting-started" target="_self">Docs</a></li><li class=""><a href="/Promptus-api-docs/docs/api" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Studies</h1></header><article><div><span><p>Courses may be bundled into studies to allow users to quickly find what they are looking for.
+It can also be used to simplify administrative work for customers.</p>
+<p>All studies are available via the <code>studies</code> query</p>
+<pre><code class="hljs css language-gql">{
+    studies{
+        id
+        description
+        price
+    }
+}
+</code></pre>
+<p>If, however, you're looking for a specific study, you can also just select that one.</p>
+<pre><code class="hljs css language-diff">{
+<span class="hljs-deletion">-   studies{</span>
+<span class="hljs-addition">+   study(id: 5){</span>
+<span class="hljs-deletion">-       id</span>
+        description
+        price
+    }
+}
+</code></pre>
+<p>The <code>study</code> query always requires an <code>id</code>, and accepts no other parameters.</p>
+<h3><a class="anchor" aria-hidden="true" id="scale-amounts"></a><a href="#scale-amounts" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Scale Amounts</h3>
+<p>Some studies have cheaper offers if the customer signs up for multiple courses simultaneously. The required amount of courses as well as the price and discount can be found in the <code>studyScaleAmounts</code> relation.</p>
+<pre><code class="hljs css language-gql">{
+    studies{
+        id
+        description
+        price
+        studyScaleAmounts{
+            courses_amount
+            price
+            discount
+        }
+    }
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="registering-for-a-study"></a><a href="#registering-for-a-study" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Registering for a study</h2>
+<p>A user can be registered for a study using the <code>registerForStudy</code> mutation. This requires a two arguments specifying the study and user. Note that this does not register the user for any component courses that are part of this study.</p>
+<pre><code class="hljs css language-gql"><span class="hljs-selector-tag">mutation</span>{
+    <span class="hljs-selector-tag">registerForCourse</span>(<span class="hljs-attribute">study</span>: <span class="hljs-number">13</span>, <span class="hljs-attribute">user</span>: <span class="hljs-number">37</span>){
+        <span class="hljs-selector-tag">id</span>
+    }
+}
+</code></pre>
+<p>Alternatively, you can define a name which will create a user object for you.</p>
+<pre><code class="hljs css language-diff">mutation{
+<span class="hljs-deletion">-   registerForCourse(course: 13, user: 37){</span>
+<span class="hljs-addition">+   registerForCourse(course: 42, first_name: "Steve", surname: "Wozniak"){</span>
+        id
+    }
+}
+</code></pre>
+<p>There are also other, optional parameters:</p>
+<ul>
+<li><code>correspondence_user</code> and <code>correspondence_company</code>: These can be used to indicate who handles communication for this registration.</li>
+<li><code>scale_amount</code>: Some companies offer price reductions if multiple studies are signed up simultaneously.</li>
+<li><code>registration_number</code>: If you want to specify a custom registration number, this option can be used.</li>
+</ul>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 11/12/2020</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#registering-for-a-study">Registering for a study</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/Promptus-api-docs/" class="nav-home"><img src="/Promptus-api-docs/img/Promptus-logo-03.svg" alt="Promptus API" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Promptus-api-docs/docs/getting-started.html">Getting Started</a><a href="/Promptus-api-docs/docs/doc2.html">Add more once PRs are merged</a></div><div><h5>Libraries</h5><a href="/Promptus-api-docs/docs/library-c-sharp.html">C# library</a><a href="/Promptus-api-docs/docs/library-php">PHP library</a><a href="/Promptus-api-docs/docs/library-javascript.html">Javascript library</a><a href="/Promptus-api-docs/docs/library-wordpress.html">Wordpress library</a></div></section><section class="copyright">Copyright © 2021 Devcake</section></footer></div></body></html>

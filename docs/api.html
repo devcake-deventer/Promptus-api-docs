@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>API · Promptus API</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Here you&#x27;ll find an overview of existing entities, their fields, types, and a brief description. "/><meta name="docsearch:language" content="en"/><meta property="og:title" content="API · Promptus API"/><meta property="og:type" content="website"/><meta property="og:url" content="https://devcake-deventer.github.io/Promptus-api-docs/"/><meta property="og:description" content="Here you&#x27;ll find an overview of existing entities, their fields, types, and a brief description. "/><meta property="og:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://devcake-deventer.github.io/Promptus-api-docs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/Promptus-api-docs/img/Promptus-icon-hat.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/Promptus-api-docs/js/scrollSpy.js"></script><link rel="stylesheet" href="/Promptus-api-docs/css/main.css"/><script src="/Promptus-api-docs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/Promptus-api-docs/"><img class="logo" src="/Promptus-api-docs/img/Promptus-icon-hat.svg" alt="Promptus API"/><h2 class="headerTitleWithLogo">Promptus API</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/Promptus-api-docs/docs/getting-started" target="_self">Docs</a></li><li class="siteNavItemActive"><a href="/Promptus-api-docs/docs/api" target="_self">API</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">API</h1></header><article><div><span><p>Here you'll find an overview of existing entities, their fields, types, and a brief description.</p>
+<h2><a class="anchor" aria-hidden="true" id="user"></a><a href="#user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User</h2>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>title</td><td>String</td><td></td></tr>
+<tr><td>nickname</td><td>String</td><td></td></tr>
+<tr><td>surname_prefix</td><td>String</td><td></td></tr>
+<tr><td>suffix</td><td>String</td><td></td></tr>
+<tr><td>address</td><td>String</td><td></td></tr>
+<tr><td>postal_code</td><td>String</td><td></td></tr>
+<tr><td>city</td><td>String</td><td></td></tr>
+<tr><td>phone_number</td><td>String</td><td></td></tr>
+<tr><td>fax_number</td><td>String</td><td></td></tr>
+<tr><td>gsm_number</td><td>String</td><td></td></tr>
+<tr><td>date_of_birth</td><td>Date</td><td></td></tr>
+<tr><td>place_of_birth</td><td>String</td><td></td></tr>
+<tr><td>BSN</td><td>String</td><td></td></tr>
+<tr><td>education_end_year</td><td>String</td><td></td></tr>
+<tr><td>bank_account_active</td><td>Boolean</td><td></td></tr>
+<tr><td>additional_positions</td><td>String</td><td></td></tr>
+<tr><td>bank_acount_number</td><td>String</td><td>IBAN of the user</td></tr>
+<tr><td>ID_number</td><td>String</td><td>The document number for the user id card</td></tr>
+<tr><td>PDF_email</td><td>String</td><td>The emailaddress to which pdf files can be send</td></tr>
+<tr><td>image_url</td><td>String</td><td>Set this to the URL of the avatar / photo of user</td></tr>
+<tr><td>bank</td><td>String</td><td>Fully qualified name of the bank the user is a member of</td></tr>
+<tr><td>contact_person</td><td>Boolean</td><td>Set this boolean to true to indicate that this is a contact person</td></tr>
+<tr><td>country</td><td>ID</td><td>Unique identifier for the country the user lives</td></tr>
+<tr><td>education</td><td>ID</td><td>Unique identifier for the education the user is registered for</td></tr>
+<tr><td>university</td><td>ID</td><td>Unique identifier of the university the user is a member of</td></tr>
+<tr><td>nationality</td><td>ID</td><td>Unique identifier for the nationality of th user</td></tr>
+<tr><td>IDNumberType</td><td>ID</td><td>Unique identifier for the type of ID number used by the user</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="study-registration"></a><a href="#study-registration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Study Registration</h2>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>price</td><td>Price</td><td>The price of the registration, this might be different from the listed price for the study</td></tr>
+<tr><td>free</td><td>Boolean</td><td>Indicates if the registration was free</td></tr>
+<tr><td>registration_date</td><td>DateTime</td><td>When the registration was created</td></tr>
+<tr><td>confirmation_date</td><td>DateTime</td><td>When the registration was confirmed</td></tr>
+<tr><td>cancellation_date</td><td>DateTime</td><td>When the registration was cancelled</td></tr>
+<tr><td>graduated</td><td>Boolean</td><td>Indicates if the student has graduated from this study</td></tr>
+</tbody>
+</table>
+<p>The documentation below shows the most used fields of each model, for full documentation and deprecation notices, please see the GraphQL schema.</p>
+<h2><a class="anchor" aria-hidden="true" id="course"></a><a href="#course" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Course</h2>
+<p><strong>Fields marked as bold are only retrieveable for administrators.</strong></p>
+<table>
+<thead>
+<tr><th>Fied</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>ID</td><td>A unique ID of the course object</td></tr>
+<tr><td>description</td><td>String</td><td>informative description about the course</td></tr>
+<tr><td>code</td><td>String</td><td>searchable property to identify the course with</td></tr>
+<tr><td>subject</td><td>String</td><td>Subject of the course</td></tr>
+<tr><td>price</td><td>Price</td><td>Price of the course</td></tr>
+<tr><td>period</td><td>String</td><td></td></tr>
+<tr><td>min_participants</td><td>Int</td><td>Minimal amount of participants required for the course to take place</td></tr>
+<tr><td>max_participants</td><td>Int</td><td>Maxmium amount of available places for this course</td></tr>
+<tr><td>available_places</td><td>Int</td><td>Amount of places still available</td></tr>
+<tr><td>current_participants</td><td>Int</td><td>Amount of registered participants</td></tr>
+<tr><td>comment</td><td>String</td><td></td></tr>
+<tr><td>cancellation_date</td><td>DateTime</td><td>Moment at which the date has been registered as cancelled</td></tr>
+<tr><td>course_number</td><td>String</td><td></td></tr>
+<tr><td>project_code</td><td>String</td><td></td></tr>
+<tr><td>content</td><td>String</td><td>details about the content of the course</td></tr>
+<tr><td>learning_goals</td><td>String</td><td>Learning goals for this course</td></tr>
+<tr><td>final</td><td>Boolean</td><td>Indicates it is ready to be published</td></tr>
+<tr><td>archived</td><td>Boolean</td><td>Indicates that the course is archived</td></tr>
+<tr><td>certificate_validity_months</td><td>Int</td><td>Amount of months the certificate is valid for</td></tr>
+<tr><td>certificate_validity_start</td><td>DateTime</td><td>Moment that the certificate will become valid</td></tr>
+<tr><td>archvied_date</td><td>DateTime</td><td>Moment the course has been archived</td></tr>
+<tr><td>registration_end_date</td><td>DateTime</td><td>Moment before which a user should be registered</td></tr>
+<tr><td>studies</td><td>[Study]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>btwType</td><td>BtwType</td><td>For details check its respective API documentation</td></tr>
+<tr><td>headTeacher</td><td>User</td><td>For details check its respective API documentation</td></tr>
+<tr><td>plannings</td><td>[Planning]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>parentCourse</td><td>Course</td><td>For details check its respective API documentation</td></tr>
+<tr><td>subCourses</td><td>[Course!]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>courseType</td><td>CourseType</td><td>For details check its respective API documentation</td></tr>
+<tr><td>studyPoints</td><td>[StudyPoint]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>courseStaff</td><td>[User]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>attributes</td><td>[Attribute]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>interestedUsers</td><td>[User]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>accreditations</td><td>[Accreditation]</td><td>For details check its respective API documentation</td></tr>
+<tr><td><strong>courseRegistrations</strong></td><td>[CourseRegistration]</td><td>For details check its respective API documentation</td></tr>
+<tr><td>created_at</td><td>DateTime</td><td>created at</td></tr>
+<tr><td>updated_at</td><td>DateTime</td><td>last changed at</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="location"></a><a href="#location" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Location</h2>
+<p>A location describes a real-world location, it can contain rooms and other locations.</p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>ID</td><td>A unique identifier for the location</td></tr>
+<tr><td>parentLocation</td><td>Location</td><td>The parent location of this location, if any</td></tr>
+<tr><td>subLocations</td><td>[Location!]!</td><td>The sub locations of this location, if any</td></tr>
+<tr><td>name</td><td>String</td><td>The name of this location</td></tr>
+<tr><td>search_name</td><td>String</td><td>The search term which should return this location</td></tr>
+<tr><td>address</td><td>String</td><td>The address of the location</td></tr>
+<tr><td>zip_code</td><td>String</td><td>The ZIP code of the location</td></tr>
+<tr><td>town</td><td>String</td><td>The town in which the location is situated</td></tr>
+<tr><td>country</td><td>Country</td><td>The country in which the location is situated</td></tr>
+<tr><td>phone</td><td>String</td><td>The phone number of the location</td></tr>
+<tr><td>fax</td><td>String</td><td>The fax number of the location</td></tr>
+<tr><td>url</td><td>String</td><td>The URL of the location</td></tr>
+<tr><td>email</td><td>String</td><td>An email contact for the location</td></tr>
+<tr><td>administrator</td><td>String</td><td>The name of the contact person for this location</td></tr>
+<tr><td>administrator_phone</td><td>String</td><td>The phone number of the contact person for this location</td></tr>
+<tr><td>own_transports</td><td>String</td><td>A description of how to reach this location using private transport</td></tr>
+<tr><td>public_transports</td><td>String</td><td>A description of how to reach this location using public transport</td></tr>
+<tr><td>route</td><td>String</td><td>A description of the route to the location</td></tr>
+<tr><td>notes</td><td>String</td><td>Any notes that might be added by the company</td></tr>
+<tr><td>created_at</td><td>DateTime</td><td>When the information on this location was first created</td></tr>
+<tr><td>updated_at</td><td>DateTime</td><td>When the information on this location was last updated</td></tr>
+<tr><td>rooms</td><td>[Room!]!</td><td>Any rooms that are available at this location</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="planning"></a><a href="#planning" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Planning</h2>
+<p>A planning object represents a reserved period of time in a calendar.</p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>ID</td><td>A unique ID of the planning object</td></tr>
+<tr><td>start_time</td><td>DateTime</td><td>The start of the timeslot</td></tr>
+<tr><td>end_time</td><td>DateTime</td><td>The end of the timeslot</td></tr>
+<tr><td>title</td><td>String</td><td>A short description</td></tr>
+<tr><td>message</td><td>String</td><td>A longer description</td></tr>
+<tr><td>outlook_id</td><td>String</td><td>A reference to a linked Microsoft Outlook object</td></tr>
+<tr><td>CX_location</td><td>String</td><td></td></tr>
+<tr><td>reminder</td><td>Int</td><td></td></tr>
+<tr><td>completed</td><td>Boolean</td><td></td></tr>
+<tr><td>free_day</td><td>Boolean</td><td></td></tr>
+<tr><td>created_at</td><td>DateTime</td><td>When was this planning created</td></tr>
+<tr><td>updated_at</td><td>DateTime</td><td>When was this planning last updated</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="room"></a><a href="#room" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Room</h2>
+<p>A location where activities can take place.</p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>ID!</td><td>A unique identifier for the room</td></tr>
+<tr><td>location</td><td>Location!</td><td>Indicates where the room is located</td></tr>
+<tr><td>number</td><td>String</td><td>The room number of this room</td></tr>
+<tr><td>description</td><td>String</td><td>A description of the room</td></tr>
+<tr><td>capacity</td><td>Int</td><td>The capacity of the room</td></tr>
+<tr><td>notes</td><td>String</td><td>Any notes the company might've added on this room</td></tr>
+<tr><td>created_at</td><td>DateTime</td><td>When was this room first created</td></tr>
+<tr><td>updated_at</td><td>DateTime</td><td>When was this room last updated</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="study"></a><a href="#study" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Study</h2>
+<p>A study object represents a series of courses that are closely related.</p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>ID</td><td>A unique ID of the study</td></tr>
+<tr><td>description</td><td>String</td><td>A description of the study</td></tr>
+<tr><td>price</td><td>Price</td><td>The price of the study</td></tr>
+<tr><td>cancellation_date</td><td>DateTime</td><td>The last moment to cancel an enrollment</td></tr>
+<tr><td>plannings</td><td>[Planning]</td><td>A list of planned moments for this study</td></tr>
+<tr><td>courses</td><td>[Course]</td><td>A list of courses that are part of this study</td></tr>
+<tr><td>courseType</td><td>CourseType</td><td>The type of courses in this study</td></tr>
+<tr><td>attributes</td><td>[Attribute]</td><td>A list of attributes for this study</td></tr>
+<tr><td>studyScaleAmounts</td><td>[StudyScaleAmount]</td><td>A list of possible rebate options</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="studyscaleamount"></a><a href="#studyscaleamount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>StudyScaleAmount</h2>
+<p>A study scale amount object represents an option to rebate for a given study.</p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>ID</td><td>A unique ID of the scale amount</td></tr>
+<tr><td>study</td><td>Study</td><td>A reference to the associated study</td></tr>
+<tr><td>courses_amount</td><td>Int</td><td>The minimum amount of courses to order to be eligible for this scale</td></tr>
+<tr><td>price</td><td>Price</td><td>The new price of this study in this scale</td></tr>
+<tr><td>discount</td><td>Percentage</td><td>The rebate of this scale, as a percentage</td></tr>
+</tbody>
+</table>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/6/2021</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#user">User</a></li><li><a href="#study-registration">Study Registration</a></li><li><a href="#course">Course</a></li><li><a href="#location">Location</a></li><li><a href="#planning">Planning</a></li><li><a href="#room">Room</a></li><li><a href="#study">Study</a></li><li><a href="#studyscaleamount">StudyScaleAmount</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/Promptus-api-docs/" class="nav-home"><img src="/Promptus-api-docs/img/Promptus-logo-03.svg" alt="Promptus API" width="66" height="58"/></a><div><h5>Docs</h5><a href="/Promptus-api-docs/docs/getting-started.html">Getting Started</a><a href="/Promptus-api-docs/docs/doc2.html">Add more once PRs are merged</a></div><div><h5>Libraries</h5><a href="/Promptus-api-docs/docs/library-c-sharp.html">C# library</a><a href="/Promptus-api-docs/docs/library-php">PHP library</a><a href="/Promptus-api-docs/docs/library-javascript.html">Javascript library</a><a href="/Promptus-api-docs/docs/library-wordpress.html">Wordpress library</a></div></section><section class="copyright">Copyright © 2021 Devcake</section></footer></div></body></html>
